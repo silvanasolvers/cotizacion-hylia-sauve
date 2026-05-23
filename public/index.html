@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HYLIA · Cotización especial Sauvé</title>
+  <meta name="description" content="Cotización especial para HYLIA: página web e-commerce y gestión de pauta mensual." />
+  <meta property="og:title" content="HYLIA · Cotización especial" />
+  <meta property="og:description" content="E-commerce + gestión de pauta mensual con tarifa preferencial por Sauvé." />
+  <meta property="og:image" content="/assets/hylia-identity.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --paper:#f7f3ed;
+      --paper-2:#f2ede7;
+      --mist:#ebe8e2;
+      --stone:#a69f99;
+      --stone-2:#c8c4bd;
+      --ink:#272421;
+      --soft:#645e58;
+      --line:rgba(39,36,33,.16);
+      --white:rgba(255,255,255,.58);
+      --shadow:0 32px 90px rgba(39,36,33,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+      background:var(--paper);
+      overflow-x:hidden;
+    }
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        linear-gradient(90deg,rgba(247,243,237,.94),rgba(247,243,237,.78) 42%,rgba(247,243,237,.92)),
+        url('/assets/hylia-identity.jpg') center top / cover no-repeat;
+      filter:saturate(.84) contrast(.98);
+      z-index:-3;
+    }
+    body:after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:
+        radial-gradient(circle at 15% 10%,rgba(255,255,255,.75),transparent 25%),
+        radial-gradient(circle at 82% 18%,rgba(200,196,189,.30),transparent 34%),
+        linear-gradient(rgba(39,36,33,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(39,36,33,.018) 1px,transparent 1px);
+      background-size:auto,auto,44px 44px,44px 44px;
+      z-index:-2;
+      pointer-events:none;
+    }
+    .noise{position:fixed;inset:0;z-index:-1;opacity:.22;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E")}
+    .wrap{width:min(1160px,calc(100% - 40px));margin:0 auto}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0;color:var(--soft);font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+    .brand-small{font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;letter-spacing:.38em;color:var(--ink)}
+    .hero{min-height:calc(100vh - 86px);display:grid;grid-template-columns:1fr .82fr;gap:56px;align-items:center;padding:30px 0 76px}
+    .kicker{letter-spacing:.25em;text-transform:uppercase;color:var(--soft);font-size:12px;margin-bottom:22px}
+    h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;margin:0;color:var(--ink)}
+    h1{font-size:clamp(76px,11vw,162px);line-height:.78;letter-spacing:.18em;text-transform:uppercase}
+    .hero-sub{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,4vw,52px);line-height:1.02;max-width:760px;margin:28px 0 22px;color:#2f2b27}
+    .copy{font-size:17px;line-height:1.75;color:var(--soft);max-width:720px;font-weight:300}
+    .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;align-items:center}
+    .btn{appearance:none;border:1px solid var(--ink);background:var(--ink);color:var(--paper);padding:15px 24px;border-radius:999px;text-decoration:none;font-size:12px;letter-spacing:.18em;text-transform:uppercase;transition:.25s ease;box-shadow:0 14px 30px rgba(39,36,33,.16)}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(39,36,33,.22)}
+    .btn.ghost{background:rgba(255,255,255,.35);color:var(--ink);box-shadow:none}
+    .visual{position:relative;min-height:650px;border:1px solid rgba(39,36,33,.12);border-radius:280px 280px 34px 34px;background:rgba(255,255,255,.35);box-shadow:var(--shadow);overflow:hidden;padding:12px;backdrop-filter:blur(8px)}
+    .visual img{width:100%;height:100%;position:absolute;inset:12px;width:calc(100% - 24px);height:calc(100% - 24px);object-fit:cover;object-position:center top;border-radius:270px 270px 26px 26px;filter:saturate(.82) contrast(.98)}
+    .visual:after{content:"";position:absolute;inset:12px;border-radius:270px 270px 26px 26px;background:linear-gradient(180deg,rgba(247,243,237,.02),rgba(247,243,237,.52));}
+    .stamp{position:absolute;right:28px;bottom:28px;z-index:2;background:rgba(247,243,237,.74);border:1px solid var(--line);backdrop-filter:blur(10px);padding:18px 22px;border-radius:999px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}
+    section{padding:96px 0;border-top:1px solid rgba(39,36,33,.10)}
+    .section-head{display:grid;grid-template-columns:.72fr 1fr;gap:44px;align-items:end;margin-bottom:42px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--soft);margin-bottom:16px}
+    .eyebrow:before{content:"";width:38px;height:1px;background:var(--ink)}
+    h2{font-size:clamp(42px,6vw,76px);line-height:.9;letter-spacing:.025em}
+    .panel{background:linear-gradient(135deg,rgba(255,255,255,.56),rgba(255,255,255,.28));border:1px solid var(--line);box-shadow:var(--shadow);backdrop-filter:blur(13px);border-radius:30px;padding:34px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .mini{min-height:210px;display:flex;flex-direction:column;justify-content:space-between}
+    .num{font-family:'Cormorant Garamond',Georgia,serif;color:var(--stone);font-size:42px;line-height:1}
+    .mini h3{font-size:30px;line-height:1;margin-top:20px}
+    .mini p{color:var(--soft);line-height:1.65;margin-bottom:0}
+    .pricing{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+    .price-card{position:relative;overflow:hidden;min-height:470px;display:flex;flex-direction:column;justify-content:space-between}
+    .price-card.featured{background:linear-gradient(140deg,rgba(39,36,33,.92),rgba(80,73,66,.88));color:var(--paper)}
+    .price-card.featured h3,.price-card.featured .price,.price-card.featured .currency{color:var(--paper)}
+    .price-card.featured p,.price-card.featured li,.price-card.featured .old{color:rgba(247,243,237,.72)}
+    .badge{display:inline-flex;width:max-content;border:1px solid currentColor;border-radius:999px;padding:8px 12px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin-bottom:24px}
+    .featured .badge{color:rgba(247,243,237,.78)}
+    .price-card h3{font-size:42px;line-height:.95;margin-bottom:18px}
+    .old{color:var(--soft);font-size:14px;text-decoration:line-through;text-decoration-thickness:1px;text-underline-offset:4px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+    .price{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(48px,6vw,78px);line-height:.9;letter-spacing:-.03em;color:var(--ink)}
+    .currency{font-family:Inter,sans-serif;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}
+    ul{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:12px}
+    li{color:var(--soft);line-height:1.5;display:flex;gap:10px}
+    li:before{content:"✦";color:var(--stone);font-size:12px;margin-top:2px}
+    .featured li:before{color:rgba(247,243,237,.75)}
+    .psych{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;margin-top:24px;align-items:stretch}
+    .quote{font-family:'Cormorant Garamond',Georgia,serif;font-size:34px;line-height:1.05;color:#35312d}
+    .terms{display:grid;gap:14px}
+    .term{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);color:var(--soft)}
+    .term strong{color:var(--ink);font-weight:500}
+    .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .step{border-top:1px solid var(--ink);padding-top:20px}
+    .step strong{font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;font-weight:400;display:block;margin-bottom:12px}
+    .step p{margin:0;color:var(--soft);line-height:1.6}
+    .close{padding:120px 0 80px;text-align:center}
+    .close h2{font-size:clamp(54px,8vw,110px);max-width:900px;margin:0 auto 24px}
+    .close p{margin:0 auto;max-width:720px;color:var(--soft);font-size:18px;line-height:1.75}
+    footer{padding:30px 0 44px;color:var(--soft);font-size:11px;letter-spacing:.18em;text-transform:uppercase;display:flex;justify-content:space-between;border-top:1px solid rgba(39,36,33,.10)}
+    @media (max-width:900px){
+      .wrap{width:min(100% - 26px,1160px)}
+      .nav{font-size:10px;gap:12px}.brand-small{font-size:20px}
+      .hero,.section-head,.pricing,.psych{grid-template-columns:1fr}
+      .hero{gap:32px;padding-top:10px}.visual{min-height:520px;order:-1}
+      .grid-3,.timeline{grid-template-columns:1fr}
+      section{padding:68px 0}.panel{padding:24px;border-radius:24px}
+      footer{display:grid;gap:12px;text-align:center}.price-card{min-height:auto}
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="wrap nav">
+    <div>Propuesta privada</div>
+    <div class="brand-small">HYLIA</div>
+    <div>Tarifa especial Sauvé</div>
+  </header>
+
+  <main>
+    <section class="wrap hero" style="border-top:0;padding-top:18px">
+      <div>
+        <div class="kicker">Marca de ropa · lanzamiento</div>
+        <h1>HYLIA</h1>
+        <p class="hero-sub">Una entrada digital elegante para una marca que nace suave, natural y lista para vender.</p>
+        <p class="copy">Esta propuesta está pensada para que HYLIA no empiece “probando” en internet, sino con una base de marca y venta que se sienta coherente desde el primer día: web con e-commerce, estructura comercial y gestión de pauta para atraer sus primeras compradoras con intención.</p>
+        <div class="cta-row">
+          <a class="btn" href="#inversion">Ver inversión</a>
+          <a class="btn ghost" href="#alcance">Qué incluye</a>
+        </div>
+      </div>
+      <aside class="visual" aria-label="Referencia visual HYLIA">
+        <img src="/assets/hylia-identity.jpg" alt="Identidad visual HYLIA" />
+        <div class="stamp">Textura · color · esencia</div>
+      </aside>
+    </section>
+
+    <section id="alcance">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Dirección estratégica</span>
+            <h2>Lo mínimo bien hecho para salir vendiendo.</h2>
+          </div>
+          <p class="copy">Para una marca nueva, el riesgo no es solo no tener página. El riesgo es salir con una presencia que no eleve el producto. Por eso combinamos e-commerce + pauta: una vitrina lista para convertir y tráfico mensual para validar demanda.</p>
+        </div>
+        <div class="grid-3">
+          <article class="panel mini"><div><div class="num">01</div><h3>Deseo</h3></div><p>Diseño visual alineado con la estética HYLIA: tonos claros, editorial, femenino y premium sin sentirse frío.</p></article>
+          <article class="panel mini"><div><div class="num">02</div><h3>Venta</h3></div><p>E-commerce preparado para mostrar productos, recibir pedidos y construir confianza desde el lanzamiento.</p></article>
+          <article class="panel mini"><div><div class="num">03</div><h3>Tracción</h3></div><p>Gestión mensual de pauta para no depender solo de publicaciones orgánicas y empezar a generar aprendizaje real.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="inversion">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Inversión</span>
+            <h2>Tarifa preferencial por ser de Sauvé.</h2>
+          </div>
+          <p class="copy">Estamos dejando esta propuesta por debajo de nuestra tarifa normal de lanzamiento porque HYLIA llega por una relación cercana con Sauvé. La idea es que puedan empezar con una base seria sin cargar el presupuesto inicial de la marca.</p>
+        </div>
+
+        <div class="pricing">
+          <article class="panel price-card featured">
+            <div>
+              <span class="badge">Proyecto inicial</span>
+              <h3>Página web con e-commerce</h3>
+              <p>Diseño y montaje de una tienda online clara, elegante y funcional para presentar la marca, productos y proceso de compra.</p>
+              <ul>
+                <li>Diseño visual inspirado en la identidad de HYLIA.</li>
+                <li>Home, catálogo/productos, página de producto y flujo de compra.</li>
+                <li>Optimización responsive para celular.</li>
+                <li>Base lista para campañas, medición y crecimiento.</li>
+              </ul>
+            </div>
+            <div>
+              <div class="old">Tarifa regular desde COP $3.500.000</div>
+              <div class="price">$2.500.000</div>
+              <div class="currency">COP · pago único</div>
+            </div>
+          </article>
+
+          <article class="panel price-card">
+            <div>
+              <span class="badge">Crecimiento mensual</span>
+              <h3>Gestión de pauta</h3>
+              <p>Administración mensual de pauta para atraer tráfico calificado, probar mensajes y convertir la nueva tienda en un canal real de ventas.</p>
+              <ul>
+                <li>Configuración y gestión de campañas Meta Ads.</li>
+                <li>Estructura de audiencias, copies y dirección creativa.</li>
+                <li>Optimización según resultados y aprendizajes.</li>
+                <li>Reporte ejecutivo mensual con próximos pasos.</li>
+              </ul>
+            </div>
+            <div>
+              <div class="old">Tarifa regular desde COP $1.200.000 / mes</div>
+              <div class="price">$850.000</div>
+              <div class="currency">COP · mensual</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="psych">
+          <article class="panel">
+            <div class="quote">“La diferencia entre lanzar una marca y empezar a vender está en tener una vitrina que inspire confianza y tráfico que la alimente.”</div>
+          </article>
+          <article class="panel terms">
+            <div class="term"><span>Inversión inicial</span><strong>COP $2.500.000</strong></div>
+            <div class="term"><span>Gestión mensual</span><strong>COP $850.000</strong></div>
+            <div class="term"><span>Beneficio aplicado</span><strong>Tarifa especial Sauvé</strong></div>
+            <div class="term"><span>Vigencia</span><strong>10 días calendario</strong></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Ruta de trabajo</span>
+            <h2>Un lanzamiento ordenado, sin improvisar.</h2>
+          </div>
+          <p class="copy">La web y la pauta se construyen como un sistema: primero la vitrina, luego la activación de tráfico y finalmente la optimización según comportamiento real de las clientas.</p>
+        </div>
+        <div class="timeline">
+          <div class="step"><strong>01</strong><p>Alineación de marca, productos, público y referencias visuales.</p></div>
+          <div class="step"><strong>02</strong><p>Diseño de estructura, estética y contenido base del e-commerce.</p></div>
+          <div class="step"><strong>03</strong><p>Montaje, revisión responsive, ajustes y preparación de medición.</p></div>
+          <div class="step"><strong>04</strong><p>Activación de pauta mensual y optimización con datos reales.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="close wrap">
+      <span class="eyebrow" style="justify-content:center">Siguiente paso</span>
+      <h2>HYLIA puede salir con una presencia que se sienta de marca desde el día uno.</h2>
+      <p>Si aprueban esta tarifa especial, bloqueamos el valor preferencial y arrancamos con una sesión corta para definir productos, prioridades de venta y línea visual final.</p>
+      <div class="cta-row" style="justify-content:center"><a class="btn" href="mailto:solvers.solvers@gmail.com?subject=Aprobaci%C3%B3n%20cotizaci%C3%B3n%20HYLIA">Aprobar propuesta</a></div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>Preparado por SolversAI</span>
+    <span>HYLIA · Cotización especial Sauvé</span>
+  </footer>
+</body>
+</html>
